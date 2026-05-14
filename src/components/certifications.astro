@@ -1,0 +1,65 @@
+---
+const certifications = [
+  {
+    title: "CCNAv7: Introducción a Redes",
+    issuer: "Cisco Networking Academy",
+    year: "2023",
+  },
+  {
+    title: "CCNAv7: Switching, Routing and Wireless Essentials",
+    issuer: "Cisco Networking Academy",
+    year: "2024",
+  },
+  {
+    title: "CCNAv7: Redes Empresariales, Seguridad y Automatización",
+    issuer: "Cisco Networking Academy",
+    year: "2024",
+  },
+  {
+    title: "Fundamentos de Python 1",
+    issuer: "Ministerio de Trabajo & Cisco Networking Academy",
+    year: "2025",
+  },
+  {
+    title: "Análisis de Datos con Power BI",
+    issuer: "UPC & Becas Grupo Romero",
+    year: "2025",
+  },
+  {
+    title: "Desarrollo Back-End (Nivel básico)",
+    issuer: "Ministerio de Trabajo",
+    year: "2025",
+  },
+];
+---
+
+<section id="certifications" class="py-12 border-t border-[#ffffff10]">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Logros</h2>
+    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-8">
+      Certificaciones
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        certifications.map((cert) => (
+          <div class="p-6 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-300 group">
+            <div class="flex flex-col h-full justify-between">
+              <div>
+                <h4 class="text-xl font-semibold text-[var(--white)] mb-2 group-hover:text-[var(--sec)] transition-colors duration-300">
+                  {cert.title}
+                </h4>
+                <p class="text-[var(--white-icon)] text-sm mb-4">
+                  {cert.issuer}
+                </p>
+              </div>
+              <span class="text-xs uppercase tracking-widest text-[var(--sec)] font-medium">
+                {cert.year}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
