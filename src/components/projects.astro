@@ -1,12 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import svgl from "../../public/svgl.png";
-import stockin from "../../public/stockin.png";
-import moviesfordevs from "../../public/moviesfordevs.png";
-import velez from "../../public/velez.png";
+import ogImage from "../../public/og.image.png";
+import landingRizor from "../../public/landing_rizor.png";
+import sistemaRizor from "../../public/sistema_rizor.png";
+import landingSaldarriaga from "../../public/landing_transportes_saldarriaga.png";
+import pauBoutique from "../../public/pau_boutique.png";
+import landingSistemaTesis from "../../public/landing_sistema.png";
 
 interface Project {
   title: string;
+  description?: string;
   image: ImageMetadata;
   link: string;
   preview: string;
@@ -15,32 +18,92 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "MoviesForDevs",
-    image: moviesfordevs as ImageMetadata,
-    link: "https://github.com/gothsec/MoviesForDevs",
-    preview: "https://movies-for-devs.vercel.app",
-    status: "Deployed",
+    title: "Rizo EIRL – Landing ERP",
+    description: "Landing page diseñada específicamente para la presentación y venta de un sistema ERP empresarial.",
+    image: landingRizor as ImageMetadata,
+    link: "https://landingpage-rizoeirl.vercel.app",
+    preview: "https://landingpage-rizoeirl.vercel.app",
+    status: "Desplegado",
   },
   {
-    title: "StockIn",
-    image: stockin as ImageMetadata,
-    link: "https://github.com/gothsec/stockin-demo",
-    preview: "https://stockin-demo.vercel.app",
-    status: "On Development",
+    title: "Rizor EIRL – ERP Sistema",
+    description: "Plataforma ERP completa desplegada para la gestión integral de procesos de la empresa Rizo EIRL.",
+    image: sistemaRizor as ImageMetadata,
+    link: "https://rizor-e-i-r-l.vercel.app",
+    preview: "https://rizor-e-i-r-l.vercel.app",
+    status: "Desplegado",
   },
   {
-    title: "Svgl.app",
-    image: svgl as ImageMetadata,
-    link: "https://github.com/pheralb/svgl",
-    preview: "https://svgl.app",
-    status: "Contributor",
+    title: "Transportes Saldarriaga S.A.C. – Landing Page Corporativa",
+    description: "Landing page corporativa para empresa de extracción y transporte de crudo. Diseño responsive que refuerza profesionalismo y eficiencia en el sector energético.",
+    image: landingSaldarriaga as ImageMetadata,
+    link: "https://transportes-saldarriaga.vercel.app/",
+    preview: "https://transportes-saldarriaga.vercel.app/",
+    status: "Desplegado",
   },
   {
-    title: "Rifas Velez Web",
-    image: velez as ImageMetadata,
-    link: "https://github.com/Buga-Software/rifasvelez-web",
-    preview: "https://www.rifasvelez.com",
-    status: "Deployed",
+    title: "Pau Boutique",
+    description: "Plataforma e-commerce para una boutique de moda ubicada en la ciudad de Talara.",
+    image: pauBoutique as ImageMetadata,
+    link: "https://pau-boutique.vercel.app",
+    preview: "https://pau-boutique.vercel.app",
+    status: "Desplegado",
+  },
+  {
+    title: "Paita Capital",
+    description: "Aplicación dedicada a la gestión o información relevante de la zona de Paita.",
+    image: ogImage as ImageMetadata,
+    link: "#",
+    preview: "#",
+    status: "Desplegado",
+  },
+  {
+    title: "Sistema Adaptativo Educativo – Landing Page",
+    description: "Landing page informativa enfocada en innovación pedagógica y tecnología educativa.",
+    image: landingSistemaTesis as ImageMetadata,
+    link: "https://landing-sistema-tesis.vercel.app",
+    preview: "https://landing-sistema-tesis.vercel.app",
+    status: "Desplegado",
+  },
+  {
+    title: "I.E. Ann Goulden – Landing Page Institucional",
+    description: "Diseño responsive y optimización para presencia digital educativa, con un enfoque netamente informativo.",
+    image: ogImage as ImageMetadata,
+    link: "#",
+    preview: "#",
+    status: "Desplegado",
+  },
+  {
+    title: "Sistema de Gestión Académica – I.E. Ann Goulden",
+    description: "Sistema web administrativo con módulos de usuarios, control de alumnos, gestión de notas y panel administrativo.",
+    image: ogImage as ImageMetadata,
+    link: "#",
+    preview: "#",
+    status: "Desplegado",
+  },
+  {
+    title: "Sistema Adaptativo Educativo – Plataforma Web",
+    description: "Sistema web orientado al aprendizaje inteligente con panel administrativo y arquitectura para integración de IA.",
+    image: ogImage as ImageMetadata,
+    link: "#",
+    preview: "#",
+    status: "Desplegado",
+  },
+  {
+    title: "Invernadero Automatizado con Arduino",
+    description: "Sistema de automatización agrícola con monitoreo en tiempo real de temperatura, humedad y riego mediante sensores inteligentes.",
+    image: ogImage as ImageMetadata,
+    link: "#",
+    preview: "#",
+    status: "Completado",
+  },
+  {
+    title: "Clasificador de Lesiones Cutáneas (ML)",
+    description: "Modelo en Python con Machine Learning para análisis y clasificación de imágenes de lesiones cutáneas en cuatro categorías.",
+    image: ogImage as ImageMetadata,
+    link: "#",
+    preview: "#",
+    status: "Completado",
   },
 ];
 ---
@@ -50,67 +113,59 @@ const projects: Project[] = [
   class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
 >
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My work</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projects</h3>
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Mi trabajo</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Proyectos</h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
         projects.map((project) => (
           <div class="group">
-            <a
-              href={project.preview}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block"
-            >
-              <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div class="flex items-center px-3">
+            <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
+              <Image
+                src={project.image}
+                alt={project.title}
+                class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="px-3">
+              <div class="flex items-start justify-between gap-4">
                 <div class="flex-grow">
-                  <h4 class="text-2xl font-semibold">{project.title}</h4>
-                  <span class="py-1 text-sm text-[var(--white-icon)]">
+                  <h4 class="text-2xl font-semibold leading-tight mb-1">{project.title}</h4>
+                  <span class="py-1 text-xs uppercase tracking-wider text-[var(--sec)] font-medium">
                     {project.status}
                   </span>
+                  <p class="mt-2 text-[var(--white-icon)] text-sm line-clamp-3">
+                    {project.description}
+                  </p>
                 </div>
-                <div class="flex gap-2 ml-auto">
-                  <a
-                    target="_blank"
-                    href={project.link}
-                    aria-label="GitHub"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-7"
+                <div class="flex gap-2 flex-shrink-0 mt-1">
+                  {project.link !== "#" && (
+                    <a
+                      target="_blank"
+                      href={project.link}
+                      aria-label="GitHub/Code"
+                      class="size-11 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-2 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
                     >
-                      <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
-                    </svg>
-                  </a>
-                  <a
-                    target="_blank"
-                    href={project.preview}
-                    aria-label="Preview"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-7"
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+                        <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
+                      </svg>
+                    </a>
+                  )}
+                  {project.preview !== "#" && (
+                    <a
+                      target="_blank"
+                      href={project.preview}
+                      aria-label="Previsualización"
+                      class="size-11 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-2 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
                     >
-                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
-                    </svg>
-                  </a>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+                        <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
               </div>
-            </a>
+            </div>
           </div>
         ))
       }
@@ -119,9 +174,9 @@ const projects: Project[] = [
       target="_blank"
       href="https://github.com/Gothsec?tab=repositories"
       aria-label="GitHub"
-      class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
+      class="w-full flex items-center justify-center gap-2 mt-12 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
     >
-      <span class="md:text-lg text-md">More projects on</span>
+      <span class="md:text-lg text-md">Más proyectos en</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
